@@ -6,9 +6,12 @@
 
 <script setup>
 import Weather from './Weather.vue';
-import {defineProps, ref} from 'vue';
+import {defineProps, ref, watch} from 'vue';
 const props = defineProps(['mensaje'])
 const mensajeRecibido = ref(props.mensaje);
+watch(()=>props.mensaje,(newValue)=>{
+    mensajeRecibido.value = newValue;
+});
 </script>
 
 
